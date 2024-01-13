@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login form</title>
+    
+</head>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: aliceblue;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+    form{
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input{
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        box-sizing: border-box;
+    }
+    button{
+        background-color: #494855;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+</style>
+<body>
+    <form id="loginForm">
+        <h2>Login</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+
+        <button type="button" onclick="ValidateLogin()">Login</button>
+    </form>
+
+    <script>
+        function ValidateLogin(){
+            var username=document.getElementById('username').value;
+            var password=document.getElementById('password').value;
+
+            if(!username||!password){
+                alert('Please enter both UserName and Password');
+                return;
+            }
+            var hashedPassword=hashedPassword(password);
+            alert('Login Succesful!');
+        }
+        function hashPassword(password){
+            var hashedPassword=btoa(password);
+            return hashedPassword;
+        }
+    </script>
+</body>
+</html>
